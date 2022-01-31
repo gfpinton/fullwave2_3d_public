@@ -165,4 +165,4 @@ genout_x = readGenoutSlice([outdir 'genout.dat'],1:nRun-1,size(outcoords,1),idc)
 tot=sum(abs(genout_x(1:nRun,:,:)));
 
 p3=reshape(tot,length(1:modZ:nZ),length(1:modY:nY),length(1:modX:nX));
-figure;plot3Slice(p3); %plot 3D sum of pressure
+figure;plot3Slice(p3); %plot 3D sum of pressure along 3 central axes
