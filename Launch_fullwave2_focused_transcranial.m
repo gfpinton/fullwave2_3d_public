@@ -114,7 +114,7 @@ end
 % convert speed of sound map to density and attenuation maps
 rho(c>1600)=1850;
   
-A_coeff=8; % attenuation coefficient (dB//MHz/cm^2)
+A_coeff=8; % attenuation coefficient (dB//MHz/cm)
 Aexp(c>1600)=dbmhzcm2aexp(A_coeff,c0,omega0,dT); 
 
 %% launch %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
