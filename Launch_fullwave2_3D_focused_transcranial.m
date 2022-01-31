@@ -133,25 +133,27 @@ Aexp(c>1600)=dbmhzcm2aexp(A_coeff,c0,omega0,dT);
   eval('!mpirun -np 10 ./fullwave2_3d_Aexp_mpi_genout_add &') %runs in matlab window %saves output to genout.dat
   %eval('!nohup mpirun -np 10 ./fullwave2_3d_Aexp_mpi_genout_add > output2.txt &') %runs in background and saves output to output2.txt
 
-%% process 2D slices
+return;
+
+%% process 2D slice
 %run after genout.dat has finished populating (simulation has finished running)
 load('outcoords')
 vab3d
 ncoordsout=size(outcoords,1);
 nRun=sizeOfFile([outdir '/genout.dat'])/4/ncoordsout
 
-idc=find(outcoords(:,2)==round(nY/2)+1); %choose center slice of Y
-genout_x = readGenoutSlice([outdir '/genout.dat'],1:nRun-1,size(outcoords,1),idc);
+idc=find(outcoords(:,2)==round(nY/2)+1); %choose center slice of Y %for center slice in X: idc=find(outcoords(:,1)==round(nX/2)+1) etc.
+genout_y = readGenoutSlice([outdir '/genout.dat'],1:nRun-1,size(outcoords,1),idc);
 
 %pressure (time,Z,X)
-px=reshape(genout_x,[],length(1:modZ:nZ),length(1:modX:nX));   
+py=reshape(genout_y,[],length(1:modZ:nZ),length(1:modX:nX));   
 
-for ii=1:10:size(px,1)
-    figure(10);imagesc(squeeze(px(ii,:,:)));
+for ii=1:10:size(py,1)
+    figure(10);imagesc(squeeze(py(ii,:,:)));
 end
 
 % intensity
-pI=squeeze(sum(px).^2);
+pI=squeeze(sum(py).^2);
 figure;imagesc((1:modX:nX),(1:modZ:nZ),dbzero(pI')',[-40 0]);colorbar;
 
 %% find sum of pressure 3D volume
