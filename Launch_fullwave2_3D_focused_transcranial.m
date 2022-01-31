@@ -2,8 +2,9 @@ clear all
 addpath /nas/longleaf/home/rmjones2/path/
 addpath /nas/longleaf/home/rmjones2/fullwave2_3d-master/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Rebecca
-% Matlab wrapper to launch Fullwave 2 code for neuromod sims
+% Rebecca Jones
+% Updated: 12/14/21
+% Matlab wrapper to launch Fullwave 2 3D code for simple neuromodulation sims
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Basic variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 c0 = 1500;              % speed of sound (m/s)
@@ -133,7 +134,7 @@ Aexp(c>1600)=dbmhzcm2aexp(A_coeff,c0,omega0,dT);
   %eval('!nohup mpirun -np 10 ./fullwave2_3d_Aexp_mpi_genout_add > output2.txt &') %runs in background and saves output to output2.txt
 
 %% process 2D slices
-%run after simulation has finished running 
+%run after genout.dat has finished populating (simulation has finished running)
 load('outcoords')
 vab3d
 ncoordsout=size(outcoords,1);
