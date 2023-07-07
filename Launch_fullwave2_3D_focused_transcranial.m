@@ -153,7 +153,7 @@ for ii=1:10:size(py,1)
 end
 
 % intensity
-pI=squeeze(sum(py).^2);
+pI=squeeze(sum(py.^2));
 figure;imagesc((1:modX:nX),(1:modZ:nZ),dbzero(pI')',[-40 0]);colorbar;
 
 %% find sum of pressure 3D volume
