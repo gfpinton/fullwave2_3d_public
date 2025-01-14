@@ -1,0 +1,25 @@
+function [] = writevabs3d4 (fname,nX,nY,nZ,nT,nTic,dX,dY,dZ,dT,c0,N,A,gamma,eta,modX,modY,modZ,modT,outdir,ncoords,ncoordsout);
+
+fid = fopen(fname,'wt');
+fprintf(fid,'nX = %d\n',nX);
+fprintf(fid,'nY = %d\n',nY);
+fprintf(fid,'nZ = %d\n',nZ);
+fprintf(fid,'nT = %d\n',nT);
+fprintf(fid,'nTic = %d\n',nTic);
+fprintf(fid,'dX = %e\n',dX);
+fprintf(fid,'dY = %e\n',dY);
+fprintf(fid,'dZ = %e\n',dZ);
+fprintf(fid,'dT = %e\n',dT);
+fprintf(fid,'c0 = %e\n',c0);
+fprintf(fid,'N = %e\n',N);
+fprintf(fid,'A = %e\n',A);
+fprintf(fid,'gamma = %e\n',gamma);
+fprintf(fid,'eta = %e\n',eta);
+fprintf(fid,'modX = %d\n',modX);
+fprintf(fid,'modY = %d\n',modY);
+fprintf(fid,'modZ = %d\n',modZ);
+fprintf(fid,'modT = %d\n',modT);
+fprintf(fid,'outdir = ''%s''\n',outdir);
+fprintf(fid,'ncoords = %d\n',ncoords);
+fprintf(fid,'ncoordsout = %d\n',ncoordsout);
+fclose(fid);
